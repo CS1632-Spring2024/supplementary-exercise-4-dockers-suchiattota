@@ -38,7 +38,9 @@ public class D3Test {
 
   @Before
   public void setUp() {
-    driver = new ChromeDriver();
+    ChromeOptions options = new ChromeOptions();
+    options.addArguments("--headless");
+    driver = new ChromeDriver(options);
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     driver.manage().window().setSize(new Dimension(1200, 800));
     js = (JavascriptExecutor) driver;
